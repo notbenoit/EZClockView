@@ -1,6 +1,4 @@
 language: objective-c
-before_install:
-- gem install xcpretty
-script:
-- set -o pipefail
-- xcodebuild -scheme EZClockView\ iOS -sdk iphonesimulator | xcpretty -c
+xcode_workspace: EZClockView.xcworkspace
+xcode_scheme: EZClockView iOS
+xcode_sdk: iphonesimulator8.1
