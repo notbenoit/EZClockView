@@ -1,3 +1,5 @@
+![EZClockView](https://raw.githubusercontent.com/notbenoit/notbenoit.github.io/master/images/ezclockview/ezclockview.png)
+
 [![Build Status](https://travis-ci.org/notbenoit/EZClockView.svg)](https://travis-ci.org/notbenoit/EZClockView)
 
 # EZClockView
@@ -67,6 +69,8 @@ Take a look at the playground shipped with the workspace.
 ### In a xib file
 Drag a UIView in your xib file and set its class to EZClock and its module to EZClockView.
 Then, edit any property as you like
+
+![IB](https://raw.githubusercontent.com/notbenoit/notbenoit.github.io/master/images/ezclockview/IB_design.png)
 
 ## Creator
 
