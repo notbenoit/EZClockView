@@ -3,4 +3,4 @@ before_install:
 - gem install xcpretty
 script:
 - set -o pipefail
-- xcodebuild -scheme EZClockView\ iOS | xcpretty -c
+- xcodebuild -scheme EZClockView\ iOS -sdk iphonesimulator | xcpretty -c
