@@ -23,6 +23,7 @@ import UIKit
 @IBDesignable
 public class EZClockView: UIView {
     
+    // MARK: - Properties
     private var faceView: UIView = UIView()
     private var handHours: UIView = UIView()
     private var handMinutes: UIView = UIView()
@@ -76,7 +77,7 @@ public class EZClockView: UIView {
         didSet { setupHand(handSeconds, lengthRatio: secondsLength, thickness: secondsThickness, offset: secondsOffset) }
     }
     
-    // MARK: Public methods
+    // MARK: - Public methods
     public func setTime(#h: Int, m: Int, s: Int, animated: Bool = false) {
         hours = h
         minutes = m
@@ -129,6 +130,7 @@ public class EZClockView: UIView {
         }
     }
     
+    // MARK: - Private methods
     private func setupHand(hand: UIView, lengthRatio: CGFloat, thickness: CGFloat, offset: CGFloat) {
         let handLength = (sideLength/2) * lengthRatio
         
