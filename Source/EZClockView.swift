@@ -133,6 +133,7 @@ public class EZClockView: UIView {
     // MARK: - Private methods
     private func setupHand(hand: UIView, lengthRatio: CGFloat, thickness: CGFloat, offset: CGFloat) {
         hand.transform = CGAffineTransformIdentity
+        hand.layer.allowsEdgeAntialiasing = true
         let handLength = (sideLength/2) * lengthRatio
         
         let anchorX: CGFloat = 0.5
