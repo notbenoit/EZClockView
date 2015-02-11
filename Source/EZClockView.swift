@@ -25,6 +25,7 @@ public class EZClockView: UIView {
     
     // MARK: - Properties
     private var faceView: UIView = UIView()
+    private var centerView: UIView = UIView()
     private var handHours: UIView = UIView()
     private var handMinutes: UIView = UIView()
     private var handSeconds: UIView = UIView()
@@ -40,6 +41,12 @@ public class EZClockView: UIView {
     @IBInspectable public var faceBackgroundColor: UIColor = UIColor.whiteColor() { didSet { faceView.backgroundColor = faceBackgroundColor } }
     @IBInspectable public var faceBorderColor: UIColor = UIColor.blackColor()
     @IBInspectable public var faceBorderWidth: CGFloat = 2.0
+    
+    // MARK: Center disc
+    @IBInspectable public var centerColor: UIColor = UIColor.redColor() { didSet { centerView.backgroundColor = centerColor } }
+    @IBInspectable public var centerRadius: CGFloat = 3.0 { didSet { setupCenterView() } }
+    @IBInspectable public var centerBorderWidth: CGFloat = 1.0 { didSet { centerView.layer.borderWidth = centerBorderWidth } }
+    @IBInspectable public var centerBorderColor: UIColor = UIColor.redColor() { didSet { centerView.layer.borderColor = centerBorderColor.CGColor } }
     
     // MARK: Hour hand
     @IBInspectable public var hoursColor: UIColor = UIColor.blackColor() { didSet { handHours.backgroundColor = hoursColor } }
@@ -104,6 +111,8 @@ public class EZClockView: UIView {
         setupHand(handMinutes, lengthRatio: minutesLength, thickness: minutesThickness, offset: minutesOffset)
         setupHand(handSeconds, lengthRatio: secondsLength, thickness: secondsThickness, offset: secondsOffset)
         
+        setupCenterView()
+        
         handHours.backgroundColor = hoursColor
         handMinutes.backgroundColor = minutesColor
         handSeconds.backgroundColor = secondsColor
@@ -114,6 +123,7 @@ public class EZClockView: UIView {
         faceView.backgroundColor = faceBackgroundColor
         faceView.layer.borderWidth = faceBorderWidth
         faceView.layer.borderColor = faceBorderColor.CGColor
+        
         
         setTime(h: hours, m: minutes, s: seconds)
     }
@@ -127,6 +137,7 @@ public class EZClockView: UIView {
             self.addSubview(handHours)
             self.addSubview(handMinutes)
             self.addSubview(handSeconds)
+            self.addSubview(centerView)
         }
     }
     
@@ -145,6 +156,15 @@ public class EZClockView: UIView {
 
         // Replace the hand at appropriate position
         updateHands()
+    }
+    
+    private func setupCenterView() {
+        centerView.bounds = CGRect(origin: CGPointZero, size: CGSize(width: centerRadius*2, height: centerRadius*2))
+        centerView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))
+        centerView.layer.cornerRadius = centerRadius
+        centerView.backgroundColor = centerColor
+        centerView.layer.borderColor = centerBorderColor.CGColor
+        centerView.layer.borderWidth = centerBorderWidth
     }
     
     private func updateHands(animated: Bool = false) {
