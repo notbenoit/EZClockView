@@ -30,17 +30,21 @@ clock.hours = 7
 clock.minutes = 12
 clock.seconds = 47
 
+// You can also setup time like this
+clock.setTime(NSDate(), animated: true)
+clock.setTime(NSDate())
+
 // Customize face with border thickness and background color
 clock.faceBorderWidth = 3
 clock.faceBackgroundColor = UIColor(white: 0.9, alpha: 1)
 
 // Set the thickness of any needle
-clock.hoursThickness = 5
+clock.hoursThickness = 3
 
 // Set the length of any needle (1 means the needle is as long as the face radius)
 clock.minutesLength = 0.5
 
 // Offset is how far beyond the center the needle can go back.
-clock.secondsOffset = 5
+clock.secondsOffset = 8
 
 view.addSubview(clock)
