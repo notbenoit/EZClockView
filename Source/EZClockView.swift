@@ -141,6 +141,9 @@ public class EZClockView: UIView {
         
         let centerInParent = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))
         hand.frame = CGRectMake(centerInParent.x-(thickness/2), centerInParent.y - handLength + offset, thickness, handLength)
+
+        // Replace the hand at appropriate position
+        updateHands()
     }
     
     private func updateHands(animated: Bool = false) {
