@@ -30,8 +30,6 @@ public class EZClockView: UIView {
     private var handMinutes: UIView = UIView()
     private var handSeconds: UIView = UIView()
     
-    private var sideLength: CGFloat = 0
-    
     // MARK: Time
     @IBInspectable public var hours: Int = 0 { didSet { updateHands() } }
     @IBInspectable public var minutes: Int = 0 { didSet { updateHands() } }
@@ -103,8 +101,7 @@ public class EZClockView: UIView {
     public override func layoutSubviews() {
         super.layoutSubviews()
         
-        // Place subviews according to values for hour minutes seconds
-        sideLength = min(self.bounds.size.width, self.bounds.size.height)
+        let clockRadius = min(self.bounds.size.width, self.bounds.size.height)
         
         // Reset all transforms
         setupHand(handHours, lengthRatio: hoursLength, thickness: hoursThickness, offset: hoursOffset)
@@ -117,9 +114,9 @@ public class EZClockView: UIView {
         handMinutes.backgroundColor = minutesColor
         handSeconds.backgroundColor = secondsColor
         
-        faceView.frame.size = CGSize(width: sideLength, height: sideLength)
+        faceView.frame.size = CGSize(width: clockRadius, height: clockRadius)
         faceView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))
-        faceView.layer.cornerRadius = sideLength/2.0
+        faceView.layer.cornerRadius = clockRadius/2.0
         faceView.backgroundColor = faceBackgroundColor
         faceView.layer.borderWidth = faceBorderWidth
         faceView.layer.borderColor = faceBorderColor.CGColor
@@ -145,7 +142,9 @@ public class EZClockView: UIView {
     private func setupHand(hand: UIView, lengthRatio: CGFloat, thickness: CGFloat, offset: CGFloat) {
         hand.transform = CGAffineTransformIdentity
         hand.layer.allowsEdgeAntialiasing = true
-        let handLength = (sideLength/2) * lengthRatio
+        
+        let clockRadius = min(self.bounds.size.width, self.bounds.size.height)
+        let handLength = (clockRadius/2.0) * CGFloat(lengthRatio)
         
         let anchorX: CGFloat = 0.5
         let anchorY: CGFloat = 1.0 - (offset/handLength)
