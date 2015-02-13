@@ -31,58 +31,88 @@ public class EZClockView: UIView {
     private var handSeconds: UIView = UIView()
     
     // MARK: Time
+    /// Set this property to change the hour hand position.
     @IBInspectable public var hours: Int = 0 { didSet { updateHands() } }
+    /// Set this property to change the minutes hand position.
     @IBInspectable public var minutes: Int = 0 { didSet { updateHands() } }
+    /// Set this property to change the seconds hand position.
     @IBInspectable public var seconds: Int = 0 { didSet { updateHands() } }
     
     // MARK: Face
+    /// Defines the background color of the face. Defaults to white.
     @IBInspectable public var faceBackgroundColor: UIColor = UIColor.whiteColor() { didSet { faceView.backgroundColor = faceBackgroundColor } }
+    /// Defines the border color of the face. Defaults to black.
     @IBInspectable public var faceBorderColor: UIColor = UIColor.blackColor()
+    /// Defines the border width of the face. Defaults to 2.
     @IBInspectable public var faceBorderWidth: CGFloat = 2.0
     
     // MARK: Center disc
+    /// Defines the color of the rounded part in the middle of the face, over the needles. Default is red.
     @IBInspectable public var centerColor: UIColor = UIColor.redColor() { didSet { centerView.backgroundColor = centerColor } }
+    /// Desfines the width of the center circle. Default is 3.0.
     @IBInspectable public var centerRadius: CGFloat = 3.0 { didSet { setupCenterView() } }
+    /// Defines the width for the border of this center part. Default is 1.0.
     @IBInspectable public var centerBorderWidth: CGFloat = 1.0 { didSet { centerView.layer.borderWidth = centerBorderWidth } }
+    /// Defines the color for the border of this center part. Default is red.
     @IBInspectable public var centerBorderColor: UIColor = UIColor.redColor() { didSet { centerView.layer.borderColor = centerBorderColor.CGColor } }
     
     // MARK: Hour hand
+    /// Defines the color for the hours hand. Default to black.
     @IBInspectable public var hoursColor: UIColor = UIColor.blackColor() { didSet { handHours.backgroundColor = hoursColor } }
+    /// Defines the length of the hours hand. It is represented as a ratio of the radius of the face. Default to 0.5.
     @IBInspectable public var hoursLength: CGFloat = 0.5 {
         didSet { setupHand(handHours, lengthRatio: hoursLength, thickness: hoursThickness, offset: hoursOffset) }
     }
+    /// Defines the thickness of the hours hand. Default is 4.
     @IBInspectable public var hoursThickness: CGFloat = 4 {
         didSet { setupHand(handHours, lengthRatio: hoursLength, thickness: hoursThickness, offset: hoursOffset) }
     }
+    /// Defines the distance by which the hours hand will overlap over the center of the face. Default is 2.
     @IBInspectable public var hoursOffset: CGFloat = 2 {
         didSet { setupHand(handHours, lengthRatio: hoursLength, thickness: hoursThickness, offset: hoursOffset) }
     }
     
     // MARK: Minute hand
+    /// Defines the color for the minutes hand. Default to black.
     @IBInspectable public var minutesColor: UIColor = UIColor.blackColor() { didSet { handMinutes.backgroundColor = minutesColor } }
+    /// Defines the length of the minutes hand. It is represented as a ratio of the radius of the face. Default to 0.7.
     @IBInspectable public var minutesLength: CGFloat = 0.7 {
         didSet { setupHand(handMinutes, lengthRatio: minutesLength, thickness: minutesThickness, offset: minutesOffset) }
     }
+    /// Defines the thickness of the minutes hand. Default is 2.
     @IBInspectable public var minutesThickness: CGFloat = 2 {
         didSet { setupHand(handMinutes, lengthRatio: minutesLength, thickness: minutesThickness, offset: minutesOffset) }
     }
+    /// Defines the distance by which the minutes hand will overlap over the center of the face. Default is 2.
     @IBInspectable public var minutesOffset: CGFloat = 2 {
         didSet { setupHand(handMinutes, lengthRatio: minutesLength, thickness: minutesThickness, offset: minutesOffset) }
     }
     
     // MARK: Second hand
+    /// Defines the color for the seconds hand. Default to red.
     @IBInspectable public var secondsColor: UIColor = UIColor.redColor() { didSet { handSeconds.backgroundColor = secondsColor } }
+    /// Defines the length of the seconds hand. It is represented as a ratio of the radius of the face. Default to 0.8.
     @IBInspectable public var secondsLength: CGFloat = 0.8 {
         didSet { setupHand(handSeconds, lengthRatio: secondsLength, thickness: secondsThickness, offset: secondsOffset) }
     }
+    /// Defines the thickness of the seconds hand. Default is 1.
     @IBInspectable public var secondsThickness: CGFloat = 1 {
         didSet { setupHand(handSeconds, lengthRatio: secondsLength, thickness: secondsThickness, offset: secondsOffset) }
     }
+    /// Defines the distance by which the seconds hand will overlap over the center of the face. Default is 2.
     @IBInspectable public var secondsOffset: CGFloat = 2 {
         didSet { setupHand(handSeconds, lengthRatio: secondsLength, thickness: secondsThickness, offset: secondsOffset) }
     }
     
     // MARK: - Public methods
+    /**
+    Set the time the clock will display. You can animate it or not.
+    
+    :param: h The hour to set
+    :param: m The minute to set
+    :param: s The second to set
+    :param: animated Whether or not the change should be animated (default to false).
+    */
     public func setTime(#h: Int, m: Int, s: Int, animated: Bool = false) {
         hours = h
         minutes = m
@@ -90,6 +120,12 @@ public class EZClockView: UIView {
         updateHands(animated: animated)
     }
     
+    /**
+    Set the time the clock will display directly by using an NSDate instance.
+    
+    :param: date The date to display. Only hours, minutes, and seconds, will be taken into account.
+    :param: animated Whether or not the change should be animated (default to false).
+    */
     public func setTime(date: NSDate, animated: Bool = false) {
         let components = NSCalendar.currentCalendar().components((.HourCalendarUnit | .MinuteCalendarUnit | .SecondCalendarUnit), fromDate: date)
         hours = components.hour
