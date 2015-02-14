@@ -30,13 +30,45 @@ public class EZClockView: UIView {
     private var handMinutes: UIView = UIView()
     private var handSeconds: UIView = UIView()
     
+    private var hourProperty: Int = 0
+    private var minuteProperty: Int = 0
+    private var secondProperty: Int = 0
+
+    // MARK: animation
+    /// Set the animation duration (the view is animated when calling the setTime methods)
+    public var animationDuration: NSTimeInterval = 0.3
+    
     // MARK: Time
     /// Set this property to change the hour hand position.
-    @IBInspectable public var hours: Int = 0 { didSet { updateHands() } }
+    @IBInspectable public var hours: Int {
+        get {
+            return hourProperty
+        }
+        set {
+            hourProperty = newValue
+            updateHands()
+        }
+    }
     /// Set this property to change the minutes hand position.
-    @IBInspectable public var minutes: Int = 0 { didSet { updateHands() } }
+    @IBInspectable public var minutes: Int {
+        get {
+            return minuteProperty
+        }
+        set {
+            minuteProperty = newValue
+            updateHands()
+        }
+    }
     /// Set this property to change the seconds hand position.
-    @IBInspectable public var seconds: Int = 0 { didSet { updateHands() } }
+    @IBInspectable public var seconds: Int {
+        get {
+            return secondProperty
+        }
+        set {
+            secondProperty = newValue
+            updateHands()
+        }
+    }
     
     // MARK: Face
     /// Defines the background color of the face. Defaults to white.
@@ -114,9 +146,9 @@ public class EZClockView: UIView {
     :param: animated Whether or not the change should be animated (default to false).
     */
     public func setTime(#h: Int, m: Int, s: Int, animated: Bool = false) {
-        hours = h
-        minutes = m
-        seconds = s
+        hourProperty = h
+        minuteProperty = m
+        secondProperty = s
         updateHands(animated: animated)
     }
     
@@ -128,9 +160,9 @@ public class EZClockView: UIView {
     */
     public func setTime(date: NSDate, animated: Bool = false) {
         let components = NSCalendar.currentCalendar().components((.HourCalendarUnit | .MinuteCalendarUnit | .SecondCalendarUnit), fromDate: date)
-        hours = components.hour
-        minutes = components.minute
-        seconds = components.second
+        hourProperty = components.hour
+        minuteProperty = components.minute
+        secondProperty = components.second
         updateHands(animated: animated)
     }
     
@@ -213,7 +245,7 @@ public class EZClockView: UIView {
         let secondsRatio = CGFloat(secondsInSeconds) / 60.0
         
         if (animated) {
-            UIView.animateWithDuration(0.3) {
+            UIView.animateWithDuration(animationDuration) {
                 self.handSeconds.transform = CGAffineTransformMakeRotation(CGFloat(2*M_PI)*secondsRatio)
                 self.handMinutes.transform = CGAffineTransformMakeRotation(CGFloat(2*M_PI)*minutesRatio)
                 self.handHours.transform = CGAffineTransformMakeRotation(CGFloat(2*M_PI)*hoursRatio)
