@@ -159,7 +159,7 @@ public class EZClockView: UIView {
     :param: animated Whether or not the change should be animated (default to false).
     */
     public func setTime(date: NSDate, animated: Bool = false) {
-        let components = NSCalendar.currentCalendar().components((.HourCalendarUnit | .MinuteCalendarUnit | .SecondCalendarUnit), fromDate: date)
+        let components = NSCalendar.currentCalendar().components((NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond), fromDate: date)
         hourProperty = components.hour
         minuteProperty = components.minute
         secondProperty = components.second
