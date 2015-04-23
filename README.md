@@ -60,6 +60,14 @@ clock.minutesLength = 0.5
 // Offset is how far beyond the center the needle can go back.
 clock.secondsOffset = 5
 
+// You can customize several markings properties
+clock.markingBorderSpacing = 5
+clock.markingHourLength = 10
+clock.markingMinuteLength = 5
+clock.markingHourThickness = 3
+
+clock.markingMinuteColor = UIColor.darkGrayColor()
+
 view.addSubview(clock)
 
 ```
@@ -71,6 +79,13 @@ Drag a UIView in your xib file and set its class to EZClock and its module to EZ
 Then, edit any property as you like
 
 ![IB](https://raw.githubusercontent.com/notbenoit/notbenoit.github.io/master/images/ezclockview/IB_design.png)
+
+## Changelog
+### 1.1.0
+Added customizable markings for hours and minutes.
+
+### 1.0.0
+Initial version
 
 ## Creator
 
