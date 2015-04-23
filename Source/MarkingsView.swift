@@ -23,8 +23,8 @@ internal class MarkingsView: UIView {
     internal var minuteMarkingThickness: CGFloat = 1 { didSet { setNeedsDisplay() } }
     internal var minuteMarkingColor: UIColor = UIColor.blackColor() { didSet { setNeedsDisplay() } }
     
-    internal var shouldDrawHourMarkings = true { didSet { setNeedsDisplay() } }
-    internal var shouldDrawMinuteMarkings = true { didSet { setNeedsDisplay() } }
+    internal var shouldDrawHourMarkings: Bool = true { didSet { setNeedsDisplay() } }
+    internal var shouldDrawMinuteMarkings: Bool = true { didSet { setNeedsDisplay() } }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
