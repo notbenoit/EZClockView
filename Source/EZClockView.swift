@@ -29,7 +29,7 @@ public class EZClockView: UIView {
     private var handHours: UIView = UIView()
     private var handMinutes: UIView = UIView()
     private var handSeconds: UIView = UIView()
-    private var markingsView: MarkingsView = MarkingsView()
+    private var markingsView: MarkingsView = MarkingsView(frame: CGRectZero)
     
     private var hourProperty: Int = 0
     private var minuteProperty: Int = 0
