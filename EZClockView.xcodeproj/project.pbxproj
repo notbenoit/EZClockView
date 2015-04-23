@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC7EF9E11AE6CA2000AB9E2E /* MarkingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7EF9E01AE6CA2000AB9E2E /* MarkingsView.swift */; };
 		FCE891431A892EDF00CEF2A7 /* EZClockView.h in Headers */ = {isa = PBXBuildFile; fileRef = FCE891411A892EDF00CEF2A7 /* EZClockView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FCE891461A892F0300CEF2A7 /* EZClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE891451A892F0300CEF2A7 /* EZClockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC7EF9E01AE6CA2000AB9E2E /* MarkingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkingsView.swift; sourceTree = "<group>"; };
 		FCE891241A892E0300CEF2A7 /* EZClockView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EZClockView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCE891411A892EDF00CEF2A7 /* EZClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZClockView.h; sourceTree = "<group>"; };
 		FCE891421A892EDF00CEF2A7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				FCE891451A892F0300CEF2A7 /* EZClockView.swift */,
 				FCE891411A892EDF00CEF2A7 /* EZClockView.h */,
 				FCE891421A892EDF00CEF2A7 /* Info.plist */,
+				FC7EF9E01AE6CA2000AB9E2E /* MarkingsView.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC7EF9E11AE6CA2000AB9E2E /* MarkingsView.swift in Sources */,
 				FCE891461A892F0300CEF2A7 /* EZClockView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

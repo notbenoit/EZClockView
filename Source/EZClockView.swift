@@ -29,6 +29,7 @@ public class EZClockView: UIView {
     private var handHours: UIView = UIView()
     private var handMinutes: UIView = UIView()
     private var handSeconds: UIView = UIView()
+    private var markingsView: MarkingsView = MarkingsView()
     
     private var hourProperty: Int = 0
     private var minuteProperty: Int = 0
@@ -136,6 +137,23 @@ public class EZClockView: UIView {
         didSet { setupHand(handSeconds, lengthRatio: secondsLength, thickness: secondsThickness, offset: secondsOffset) }
     }
     
+    // MARK: Markings
+    // Margin from the border of the clock.
+    @IBInspectable public var markingBorderSpacing: CGFloat = 20 { didSet { markingsView.borderSpacing = markingBorderSpacing } }
+    
+    // Length in points of the hour markings.
+    @IBInspectable public var markingHourLength: CGFloat = 20 { didSet { markingsView.hourMarkingLength = markingHourLength } }
+    @IBInspectable public var markingHourThickness: CGFloat = 1 { didSet { markingsView.hourMarkingThickness = markingHourThickness } }
+    @IBInspectable public var markingHourColor: UIColor = UIColor.blackColor() { didSet { markingsView.hourMarkingColor = markingHourColor } }
+    
+    // Length in points of the minute markings.
+    @IBInspectable public var markingMinuteLength: CGFloat = 10 { didSet { markingsView.minuteMarkingLength = markingMinuteLength } }
+    @IBInspectable public var markingMinuteThickness: CGFloat = 1 { didSet { markingsView.minuteMarkingThickness = markingMinuteThickness } }
+    @IBInspectable public var markingMinuteColor: UIColor = UIColor.blackColor() { didSet { markingsView.minuteMarkingColor = markingMinuteColor } }
+    
+    @IBInspectable public var shouldDrawHourMarkings: Bool = true { didSet { markingsView.shouldDrawHourMarkings = shouldDrawHourMarkings } }
+    @IBInspectable public var shouldDrawMinuteMarkings: Bool = true { didSet { markingsView.shouldDrawMinuteMarkings = shouldDrawMinuteMarkings } }
+    
     // MARK: - Public methods
     /**
     Set the time the clock will display. You can animate it or not.
@@ -189,6 +207,7 @@ public class EZClockView: UIView {
         faceView.layer.borderWidth = faceBorderWidth
         faceView.layer.borderColor = faceBorderColor.CGColor
         
+        markingsView.frame = faceView.frame
         
         setTime(h: hours, m: minutes, s: seconds)
     }
@@ -203,6 +222,8 @@ public class EZClockView: UIView {
             self.addSubview(handMinutes)
             self.addSubview(handSeconds)
             self.addSubview(centerView)
+            
+            self.addSubview(markingsView)
         }
     }
     

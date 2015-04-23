@@ -47,4 +47,10 @@ clock.minutesLength = 0.5
 // Offset is how far beyond the center the needle can go back.
 clock.secondsOffset = 8
 
+clock.markingBorderSpacing = 5
+clock.markingHourLength = 10
+clock.markingMinuteLength = 5
+
+clock.markingHourThickness = 3
+
 view.addSubview(clock)
