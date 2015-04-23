@@ -1,6 +1,6 @@
 ![EZClockView](https://raw.githubusercontent.com/notbenoit/notbenoit.github.io/master/images/ezclockview/ezclockview.png)
 
-[![Build Status](https://travis-ci.org/notbenoit/EZClockView.svg)](https://travis-ci.org/notbenoit/EZClockView)
+[![Build Status](https://travis-ci.org/notbenoit/EZClockView.svg?branch=master)](https://travis-ci.org/notbenoit/EZClockView)
 
 # EZClockView
 EZClockView is an iOS framework (MacOS soon) which provides a ClockView to display time. It could be used directly in nib files or in code.
