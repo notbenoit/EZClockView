@@ -16,16 +16,16 @@ EZClockView is an iOS framework (MacOS soon) which provides a ClockView to displ
 ### CocoaPods
 [CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects.
 
-CocoaPods 0.36 beta adds supports for Swift and embedded frameworks. You can install it with the following command:
+CocoaPods 0.36 adds supports for Swift and embedded frameworks. You can install it with the following command:
 
 ```bash
-$ gem install cocoapods --pre
+$ gem install cocoapods
 ```
 
-To add `EZClockView` to your project, add this line to your  `Podfile` (WIP on develop branch) :
+To add `EZClockView` to your project, add this line to your  `Podfile` :
 
 ```ruby
-pod 'EZClockView', :git => 'https://github.com/notbenoit/EZClockView.git', :branch => 'develop'
+pod 'EZClockView', '~> 1.1.0'
 ```
 
 ### Manual
