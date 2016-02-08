@@ -91,6 +91,7 @@ internal class MarkingsView: UIView {
         
         let minuteOffsetAngle: CGFloat = CGFloat(M_PI/30.0)
         let minutePath = CGPathCreateMutable()
+        CGPathMoveToPoint(minutePath, nil, center.x, center.y)
         for i in 0...61 {
             if (i % 5 != 0) { // Minutes markings do not overlap hours markings
                 let x = center.x + lineLength * sin(CGFloat(i) * minuteOffsetAngle)
