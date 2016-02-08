@@ -43,7 +43,7 @@ internal class MarkingsView: UIView {
         self.backgroundColor = UIColor.clearColor()
     }
     
-    required internal init(coder aDecoder: NSCoder) {
+    required internal init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.backgroundColor = UIColor.clearColor()
     }

@@ -158,30 +158,30 @@ public class EZClockView: UIView {
     /**
     Set the time the clock will display. You can animate it or not.
     
-    :param: h The hour to set
-    :param: m The minute to set
-    :param: s The second to set
-    :param: animated Whether or not the change should be animated (default to false).
+    - parameter h: The hour to set
+    - parameter m: The minute to set
+    - parameter s: The second to set
+    - parameter animated: Whether or not the change should be animated (default to false).
     */
-    public func setTime(#h: Int, m: Int, s: Int, animated: Bool = false) {
+    public func setTime(h h: Int, m: Int, s: Int, animated: Bool = false) {
         hourProperty = h
         minuteProperty = m
         secondProperty = s
-        updateHands(animated: animated)
+        updateHands(animated)
     }
     
     /**
     Set the time the clock will display directly by using an NSDate instance.
     
-    :param: date The date to display. Only hours, minutes, and seconds, will be taken into account.
-    :param: animated Whether or not the change should be animated (default to false).
+    - parameter date: The date to display. Only hours, minutes, and seconds, will be taken into account.
+    - parameter animated: Whether or not the change should be animated (default to false).
     */
     public func setTime(date: NSDate, animated: Bool = false) {
-        let components = NSCalendar.currentCalendar().components((NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond), fromDate: date)
+        let components = NSCalendar.currentCalendar().components(([NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second]), fromDate: date)
         hourProperty = components.hour
         minuteProperty = components.minute
         secondProperty = components.second
-        updateHands(animated: animated)
+        updateHands(animated)
     }
     
     public override func layoutSubviews() {
