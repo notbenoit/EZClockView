@@ -9,14 +9,14 @@ EZClockView is an iOS framework (MacOS soon) which provides a ClockView to displ
 ## Requirements
 
 - iOS 7.0+
-- Xcode 6.1
+- Xcode 7.2
 
 ## Installation
 
 ### CocoaPods
 [CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects.
 
-CocoaPods 0.36 adds supports for Swift and embedded frameworks. You can install it with the following command:
+CocoaPods since 0.36 supports for Swift and embedded frameworks. You can install it with the following command:
 
 ```bash
 $ gem install cocoapods
@@ -25,7 +25,7 @@ $ gem install cocoapods
 To add `EZClockView` to your project, add this line to your  `Podfile` :
 
 ```ruby
-pod 'EZClockView', '~> 1.1.0'
+pod 'EZClockView', '~> 1.1.2'
 ```
 
 ### Manual
@@ -81,6 +81,12 @@ Then, edit any property as you like
 ![IB](https://raw.githubusercontent.com/notbenoit/notbenoit.github.io/master/images/ezclockview/IB_design.png)
 
 ## Changelog
+### 1.1.2
+Hotfix where drawing would start without moving to a point first.
+
+### 1.1.1
+Updated for Swift 2.1
+
 ### 1.1.0
 Added customizable markings for hours and minutes.
 
