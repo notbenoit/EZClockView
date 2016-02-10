@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'EZClockView'
-  s.version = '1.1.0'
+  s.version = '1.1.2'
   s.license = 'MIT'
   s.summary = 'iOS framework to display and customize a clock.'
   s.homepage = 'https://github.com/notbenoit/EZClockView'
