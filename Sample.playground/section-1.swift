@@ -21,7 +21,7 @@
 import UIKit
 import EZClockView
 
-let view = UIView(frame: CGRect(origin: CGPointZero, size: CGSizeMake(300.0, 200.0)))
+let view = UIView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 300.0, height: 200.0)))
 
 let clock = EZClockView(frame: view.bounds)
 
@@ -31,8 +31,8 @@ clock.minutes = 12
 clock.seconds = 47
 
 // You can also setup time like this
-clock.setTime(NSDate(), animated: true)
-clock.setTime(NSDate())
+clock.setTime(Date(), animated: true)
+clock.setTime(Date())
 
 // Customize face with border thickness and background color
 clock.faceBorderWidth = 3
@@ -53,7 +53,7 @@ clock.markingHourLength = 10
 clock.markingMinuteLength = 5
 clock.markingHourThickness = 3
 
-clock.markingMinuteColor = UIColor.darkGrayColor()
+clock.markingMinuteColor = UIColor.darkGray
 
 
 view.addSubview(clock)
