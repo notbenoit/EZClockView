@@ -50,10 +50,10 @@ internal class MarkingsView: UIView {
     
     override internal func drawRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
-        CGContextClearRect(context, rect)
-        CGContextSetAllowsAntialiasing(context, true)
-        CGContextSetShouldAntialias(context, true)
-        CGContextSaveGState(context)
+        CGContextClearRect(context!, rect)
+        CGContextSetAllowsAntialiasing(context!, true)
+        CGContextSetShouldAntialias(context!, true)
+        CGContextSaveGState(context!)
         
         // Get the size of the clock (a square at the center of the rect)
         let size = min(rect.size.width, rect.size.height)
@@ -73,21 +73,21 @@ internal class MarkingsView: UIView {
         
         // Clip for hours
         let hoursMaskRadius = lineLength - hourMarkingLength
-        CGContextBeginPath(context)
-        CGContextAddRect(context, CGContextGetClipBoundingBox(context))
-        CGContextAddEllipseInRect(context, CGRect(origin: CGPoint(x: center.x - hoursMaskRadius, y: center.y - hoursMaskRadius), size: CGSize(width: hoursMaskRadius*2, height: hoursMaskRadius*2)))
-        CGContextEOClip(context)
+        CGContextBeginPath(context!)
+        CGContextAddRect(context!, CGContextGetClipBoundingBox(context!))
+        CGContextAddEllipseInRect(context!, CGRect(origin: CGPoint(x: center.x - hoursMaskRadius, y: center.y - hoursMaskRadius), size: CGSize(width: hoursMaskRadius*2, height: hoursMaskRadius*2)))
+        CGContextEOClip(context!)
         
         // Draw hour markings
         if shouldDrawHourMarkings {
             hourMarkingColor.set()
-            CGContextSetLineWidth(context, hourMarkingThickness)
-            CGContextAddPath(context, hourPath)
-            CGContextStrokePath(context)
+            CGContextSetLineWidth(context!, hourMarkingThickness)
+            CGContextAddPath(context!, hourPath)
+            CGContextStrokePath(context!)
         }
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
         
-        CGContextSaveGState(context)
+        CGContextSaveGState(context!)
         
         let minuteOffsetAngle: CGFloat = CGFloat(M_PI/30.0)
         let minutePath = CGPathCreateMutable()
@@ -103,19 +103,19 @@ internal class MarkingsView: UIView {
         
         // Clip for minutes
         let minutesMaskRadius = lineLength - minuteMarkingLength
-        CGContextBeginPath(context)
-        CGContextAddRect(context, CGContextGetClipBoundingBox(context))
-        CGContextAddEllipseInRect(context, CGRect(origin: CGPoint(x: center.x - minutesMaskRadius, y: center.y - minutesMaskRadius), size: CGSize(width: minutesMaskRadius*2, height: minutesMaskRadius*2)))
-        CGContextEOClip(context)
+        CGContextBeginPath(context!)
+        CGContextAddRect(context!, CGContextGetClipBoundingBox(context!))
+        CGContextAddEllipseInRect(context!, CGRect(origin: CGPoint(x: center.x - minutesMaskRadius, y: center.y - minutesMaskRadius), size: CGSize(width: minutesMaskRadius*2, height: minutesMaskRadius*2)))
+        CGContextEOClip(context!)
 
         // Draw minute markings
         if shouldDrawMinuteMarkings {
             minuteMarkingColor.set()
-            CGContextSetLineWidth(context, minuteMarkingThickness)
-            CGContextAddPath(context, minutePath)
-            CGContextStrokePath(context)
+            CGContextSetLineWidth(context!, minuteMarkingThickness)
+            CGContextAddPath(context!, minutePath)
+            CGContextStrokePath(context!)
         }
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
         // ---------------
     }
 
