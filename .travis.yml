@@ -3,3 +3,8 @@ osx_image: xcode8
 xcode_workspace: EZClockView.xcworkspace
 xcode_scheme: EZClockView iOS
 xcode_sdk: iphonesimulator10.0
+env:
+  global:
+  - IOS_SDK=iphonesimulator10.0
+script:
+  - xcodebuild -workspace EZClockView.xcworkspace -scheme EZClockView\ iOS -sdk $IOS_SDK build analyze
