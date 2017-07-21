@@ -233,7 +233,7 @@ open class EZClockView: UIView {
 		hand.layer.allowsEdgeAntialiasing = true
 		
 		let clockRadius = min(self.bounds.size.width, self.bounds.size.height)
-		let handLength = (clockRadius/2.0) * CGFloat(lengthRatio)
+		let handLength = (clockRadius/2.0) * max(0.0001, lengthRatio)
 		
 		let anchorX: CGFloat = 0.5
 		let anchorY: CGFloat = 1.0 - (offset/handLength)
