@@ -25,7 +25,7 @@ $ gem install cocoapods
 To add `EZClockView` to your project, add this line to your  `Podfile` :
 
 ```ruby
-pod 'EZClockView', '~> 1.1.2'
+pod 'EZClockView', '~> 1.2'
 ```
 
 ### Manual
@@ -81,17 +81,25 @@ Then, edit any property as you like
 ![IB](https://raw.githubusercontent.com/notbenoit/notbenoit.github.io/master/images/ezclockview/IB_design.png)
 
 ## Changelog
+
+### 1.2.1
+- Updated for Swift 3.1
+- Fixed an issue where setting a handle length to 0 would make the app crash.
+
+### 1.2
+- Updated for Swift 3.0
+
 ### 1.1.2
-Hotfix where drawing would start without moving to a point first.
+- Hotfix where drawing would start without moving to a point first.
 
 ### 1.1.1
-Updated for Swift 2.1
+- Updated for Swift 2.1
 
 ### 1.1.0
-Added customizable markings for hours and minutes.
+- Added customizable markings for hours and minutes.
 
 ### 1.0.0
-Initial version
+- Initial version
 
 ## Creator
 
