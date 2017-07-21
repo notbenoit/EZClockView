@@ -233,7 +233,7 @@ open class EZClockView: UIView {
 		hand.layer.allowsEdgeAntialiasing = true
 		
 		let clockRadius = min(self.bounds.size.width, self.bounds.size.height)
-		let handLength = (clockRadius/2.0) * CGFloat(lengthRatio)
+		let handLength = (clockRadius/2.0) * max(0.0001, lengthRatio)
 		
 		let anchorX: CGFloat = 0.5
 		let anchorY: CGFloat = 1.0 - (offset/handLength)
@@ -267,14 +267,14 @@ open class EZClockView: UIView {
 		
 		if (animated) {
 			UIView.animate(withDuration: animationDuration, animations: {
-				self.handSeconds.transform = CGAffineTransform(rotationAngle: CGFloat(2*M_PI)*secondsRatio)
-				self.handMinutes.transform = CGAffineTransform(rotationAngle: CGFloat(2*M_PI)*minutesRatio)
-				self.handHours.transform = CGAffineTransform(rotationAngle: CGFloat(2*M_PI)*hoursRatio)
+				self.handSeconds.transform = CGAffineTransform(rotationAngle: 2 * CGFloat.pi * secondsRatio)
+				self.handMinutes.transform = CGAffineTransform(rotationAngle: 2 * CGFloat.pi * minutesRatio)
+				self.handHours.transform = CGAffineTransform(rotationAngle: 2 * CGFloat.pi * hoursRatio)
 			})
 		} else {
-			handSeconds.transform = CGAffineTransform(rotationAngle: CGFloat(2*M_PI)*secondsRatio)
-			handMinutes.transform = CGAffineTransform(rotationAngle: CGFloat(2*M_PI)*minutesRatio)
-			handHours.transform = CGAffineTransform(rotationAngle: CGFloat(2*M_PI)*hoursRatio)
+			handSeconds.transform = CGAffineTransform(rotationAngle: 2 * CGFloat.pi * secondsRatio)
+			handMinutes.transform = CGAffineTransform(rotationAngle: 2 * CGFloat.pi * minutesRatio)
+			handHours.transform = CGAffineTransform(rotationAngle: 2 * CGFloat.pi * hoursRatio)
 		}
 	}
 }

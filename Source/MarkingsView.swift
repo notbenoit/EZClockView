@@ -61,7 +61,7 @@ internal class MarkingsView: UIView {
 		let center = CGPoint(x: rect.midX, y: rect.midY)
 		
 		// Draw 12 hour marks
-		let hourOffsetAngle: CGFloat = CGFloat(M_PI/6.0)
+		let hourOffsetAngle: CGFloat = CGFloat.pi/6.0
 		let hourPath = CGMutablePath()
 		hourPath.move(to: center)
 		for i in 0..<12 {
@@ -89,7 +89,7 @@ internal class MarkingsView: UIView {
 		
 		context.saveGState()
 		
-		let minuteOffsetAngle: CGFloat = CGFloat(M_PI/30.0)
+		let minuteOffsetAngle: CGFloat = CGFloat.pi/30.0
 		let minutePath = CGMutablePath()
 		minutePath.move(to: center)
 		for i in 0...61 {
